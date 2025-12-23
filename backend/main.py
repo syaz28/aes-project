@@ -1,5 +1,10 @@
 # backend/main.py
 
+import sys
+import os
+# Hack: Tambahkan direktori saat ini ke sys.path agar module lain terbaca di Vercel
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
