@@ -1,5 +1,11 @@
 {
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18"
+  "name": "aes-project",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run dev"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
