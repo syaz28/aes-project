@@ -1,5 +1,5 @@
 // Environment-based API configuration
 // For local development: uses http://localhost:8000
-// For production (Vercel): set VITE_API_URL environment variable to Render backend URL
+// For production (Vercel Monorepo): uses /api prefix (same domain)
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+export const API_BASE_URL = import.meta.env.PROD ? "/api" : "http://localhost:8000";

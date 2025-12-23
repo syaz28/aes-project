@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lock, Unlock, Image as ImageIcon, Dice5, Download, Trash2, Upload, AlertCircle, Loader2, Clock, Shield, ZoomIn } from 'lucide-react';
+import { Lock, Unlock, Image as ImageIcon, Dice5, Download, Trash2, Upload, AlertCircle, Loader2, Clock, Shield, ZoomIn, ShieldAlert } from 'lucide-react';
 import axios, { AxiosError } from 'axios';
 import { API_BASE_URL } from '../config';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
@@ -317,6 +317,42 @@ export default function ImageEncryption({ customSboxData, customSboxName }: Imag
           <p className="text-sm text-zinc-400">
             AES-128 CBC Mode for Visual Cryptography with Security Analysis
           </p>
+        </div>
+
+        {/* Operational Protocols Warning */}
+        <div className="mx-6 mt-6 p-4 bg-amber-500/5 border border-amber-500/30 rounded-xl backdrop-blur-sm">
+          <div className="flex items-center gap-2 mb-3">
+            <ShieldAlert className="w-5 h-5 text-amber-400" />
+            <h3 className="text-sm font-bold text-amber-300 tracking-wider uppercase">
+              System Protocols & Limitations
+            </h3>
+          </div>
+          <ul className="space-y-2 text-xs text-zinc-400">
+            <li className="flex items-start gap-2">
+              <span className="text-amber-400 font-bold">1.</span>
+              <span>
+                <strong className="text-zinc-300">Maximum Payload:</strong> Ukuran file maksimum adalah <strong className="text-amber-300">4 MB</strong>. Sistem berjalan pada arsitektur Serverless (Vercel) yang membatasi bandwidth upload.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-amber-400 font-bold">2.</span>
+              <span>
+                <strong className="text-zinc-300">Supported Formats:</strong> Format yang didukung: <strong className="text-amber-300">JPG, PNG, BMP, WEBP</strong>. File akan otomatis dikonversi ke RGB channel.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-amber-400 font-bold">3.</span>
+              <span>
+                <strong className="text-zinc-300">Data Integrity:</strong> <span className="text-red-400">DILARANG</span> melakukan kompresi (WhatsApp/Line) atau <em>resize</em> pada gambar hasil enkripsi. Hal ini akan merusak metadata "Hidden IV" dan membuat gambar gagal didekripsi.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-amber-400 font-bold">4.</span>
+              <span>
+                <strong className="text-zinc-300">Ephemeral Storage:</strong> Demi keamanan, file diproses di memori volatil (RAM) dan tidak disimpan permanen di server database.
+              </span>
+            </li>
+          </ul>
         </div>
 
         {/* Content */}

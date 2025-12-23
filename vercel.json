@@ -1,0 +1,57 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "backend/main.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "50mb"
+            }
+        },
+        {
+            "src": "frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/health",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/matrices",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/generate",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/analyze",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/encrypt",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/decrypt",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/encrypt-image",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/api/decrypt-image",
+            "dest": "backend/main.py"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "frontend/$1"
+        }
+    ]
+}
