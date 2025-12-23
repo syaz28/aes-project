@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px; /* Base font size - increase for larger text */
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-zinc-950 text-zinc-200 font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Increase base heading sizes */
+  h1 { @apply text-3xl font-bold; }
+  h2 { @apply text-2xl font-bold; }
+  h3 { @apply text-xl font-semibold; }
+  h4 { @apply text-lg font-semibold; }
+  
+  /* Base text sizes */
+  p { @apply text-base leading-relaxed; }
+  
+  /* Labels and small text - increase minimum size */
+  .text-xs { font-size: 0.8rem !important; }
+  .text-sm { font-size: 0.9rem !important; }
+}
+
+@layer components {
+  /* Card Panels */
+  .card-panel {
+    @apply bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl;
+  }
+  
+  /* Input Fields */
+  .input-field {
+    @apply bg-zinc-800 border border-zinc-700 rounded-md px-4 py-2 text-zinc-200 
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+           transition-all duration-200;
+  }
+  
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg
+           transition-all duration-200 shadow-lg hover:shadow-blue-500/50
+           flex items-center gap-2 justify-center disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  /* Secondary Button */
+  .btn-secondary {
+    @apply bg-zinc-700 hover:bg-zinc-600 text-zinc-200 font-medium px-4 py-2 rounded-md
+           transition-all duration-200 border border-zinc-600;
+  }
+  
+  /* Tab Button */
+  .tab-button {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200
+           border border-transparent;
+  }
+  
+  .tab-button.active {
+    @apply bg-zinc-800 border-zinc-700 text-blue-400;
+  }
+  
+  .tab-button:not(.active) {
+    @apply text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50;
+  }
+  
+  /* Matrix Cell */
+  .matrix-cell {
+    @apply bg-zinc-800 border border-zinc-700 rounded px-3 py-2 text-sm font-mono
+           text-zinc-300 text-center;
+  }
+  
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-zinc-900;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700 rounded-full hover:bg-zinc-600;
+  }
+}
+
+/* Global Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+}
